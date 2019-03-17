@@ -1,5 +1,5 @@
 /* scrollbar */
-::-webkit-scrollbar {display: none;}
+::-webkit-scrollbar {display: block;}
 ::-webkit-scrollbar-track {border-radius: 4px; margin: 0 0 5px;}
 ::-webkit-scrollbar-thumb {border-radius: 4px; background: #cccccc;}
 /*----------------------------------------------------------------------- 共用 --*/
@@ -147,10 +147,13 @@ main{
     width: 49%;
     height: 273px;
     float: left;
-    margin: 0 2% 0 0;
+    margin: 0 2% 2% 0;
     background: #FFFFFF;
     box-shadow: 0 1px 3px 0 rgba(0,0,0,0.20);
 }
+/* #content ul li{
+    margin: 0 0 20px;
+} */
 #content ul li:nth-of-type(2n){
     margin: 0 0 0 0;
 }
@@ -158,6 +161,10 @@ main{
     width:100%; 
     height:155px;
     position: relative;
+}
+#content ul li figcaption img{
+    width:100%; 
+    height:155px;
 }
 #content ul li figcaption figure.name,
 #content ul li figcaption figure.area{
@@ -183,6 +190,9 @@ main{
     position: relative;
     padding: 0 0 0 25px;
     margin-bottom: 16px;
+    overflow : hidden;
+    text-overflow : ellipsis;
+    white-space : nowrap;
 }
 
 #content .contentText-block ul li.area-phone::before{
@@ -228,7 +238,9 @@ main{
     padding: 0 0 0 10px;
 }
 
-
+main .wrap nav{
+    text-align: center;
+}
 
 /*----------------------------------------------------------------------- footer --*/
 footer{

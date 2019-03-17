@@ -14,17 +14,16 @@
         <div class="wrap">
             <h1>高雄旅遊資訊</h1>
             <select name="" id="selet-box">
-                <option value="0">-- 請選擇行政區 --</option>
-                <!-- select repleace -->
+                <option value="-1">-- 請選擇行政區 --</option>
             </select>
             <div class="hot-block">
                 <p class="hot-title">熱門行政區</p>
                 <div class="hot-content">
                     <ul>
-                        <li class="hot1">苓雅區</li>
-                        <li class="hot2">三民區</li>
-                        <li class="hot3">新興區</li>
-                        <li class="hot4">鹽埕區</li>
+                        <li class="hot1" value="18">苓雅區</li>
+                        <li class="hot2" value="0">三民區</li>
+                        <li class="hot3" value="17">新興區</li>
+                        <li class="hot4" value="15">高雄市</li>
                     </ul>
                 </div>
             </div>
@@ -38,32 +37,16 @@
             <div id="content-block">
                 <div id="content-title">三民區</div>
                 <div id="content">
-                    <ul class="clearfix">
-                        <li class="contentLi-style">
-                            <!-- <picture>
-                                <source srcset="smaller_landscape.jpg" >
-                                <img src="default_landscape.jpg" alt="My default image">
-                            </picture> -->
-                            <figcaption>
-                                <img src="./assets/images/Hero.png" width="100%" height="155px"/>
-                                <figure class="name">text</figure>
-                                <figure class="area">text</figure>
-                            </figcaption>
-                            <div class="contentText-block">
-                                <ul>
-                                    <li class="area-time">週二至週日10:00-18:00，每週一公休</li>
-                                    <li class="area-position">高雄市三民區建國二路318號</li>
-                                    <li class="area-phone">
-                                        <div>886-7-2363357</div>
-                                        <div class="area-tag">免費參觀</div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="contentLi-style">123</li>
-                    </ul>
+                    <ul class="clearfix"></ul>
                 </div>
             </div>
+            <nav aria-label="Page navigation">
+                <ul class="pagination d-flex justify-content-center" id="areaPage">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
         </div>
     </main>
     <footer>
@@ -83,19 +66,24 @@
     xhr.send(null);
     xhr.onload = function () {
         ogjData = JSON.parse(xhr.responseText);
-        console.log(ogjData.result.records)
+        // console.log(ogjData.result.records)
         Index.init();
     };
-
-    var selectAry = [];
-    var index = function(){
-        // 初始資料
-        
-        var _this = this;
+    var index = function(){ 
+        var id = 0;
+        var val;
+        // 初始資料        
+        this.initial = function(){
+            // 預設三民區
+            $('#selet-box option[value="'+id+'"]').attr('selected','selected');
+            val = $('#selet-box option[value="' + id + '"]').text();
+        }
         // select 渲染
         this.selectRender = function(){
+            var _this = this;
             let html;
-            let select = [];
+            let select      = [];
+            let selectAry   = [];
             let selectData  = ogjData.result.records;
             // 只取區的value
             for( let i in selectData ){
@@ -111,23 +99,41 @@
             $('#selet-box').append(html);
         }   
         this.mainRender = function(){
-            /* 
-                圖片        - Picture1
-                開放時間    - Opentime
-                電話        - Tel
-                地址        - Add
-                免費參觀    - Ticketinfo
-                區域        - Zone
-            */
-            for(  ){
-
+            let mainData = ogjData.result.records;
+            let dataObj = {};
+            let html;
+            for( let i in mainData ){
+                if( mainData[i].Zone == val ){
+                    html += `<li class="contentLi-style" data-id="${mainData[i]._id}">
+                                <figcaption>
+                                    <img src="${mainData[i].Picture1}"/>
+                                    <figure class="name">${mainData[i].Name}</figure>
+                                    <figure class="area">${mainData[i].Zone}</figure>
+                                </figcaption>
+                                <div class="contentText-block">
+                                    <ul>
+                                        <li class="area-time">${mainData[i].Opentime}</li>
+                                        <li class="area-position">${mainData[i].Add}</li>
+                                        <li class="area-phone">
+                                            <div>${mainData[i].Tel}</div>
+                                            <div class="area-tag">${mainData[i].Ticketinfo}</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>`;
+                    // 出現不名 undefined 移除
+                    html = html.replace('undefined', '');
+                }
             }
-
-            
+            $('#content ul').append(html);
         }
         this.init = function(){
-            // console.log('12313')
-            this.selectRender();
+            var _this = this;
+            $(document).ready(function () {
+                _this.selectRender();
+                _this.initial();
+                _this.mainRender();          
+            });
         }
     }
     var Index = new index();
