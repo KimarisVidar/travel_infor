@@ -12,7 +12,6 @@ header{
     width: 100%;
     height: 380px;
     background: url(../images/Hero.png) no-repeat top center;
-    /* background-size: cover; */
     position: relative;
 }
 header h1{
@@ -93,7 +92,6 @@ header h1{
 
 main{
     width: 100%;
-    /* height: 500px; */
     background: #fff;
     padding: 133px 0 0 0;
     margin: 0 0 36px;
@@ -102,7 +100,6 @@ main{
 .line{
     width: 900px;
     height: 1px;
-    /* border: 1px dashed #559AC8; */
     background-image: linear-gradient(to right, #559AC8 37%, #559AC8 50%, transparent 50%);
     background-size: 10px 1px;
     background-repeat: repeat-x;
@@ -152,9 +149,6 @@ main{
     background: #FFFFFF;
     box-shadow: 0 1px 3px 0 rgba(0,0,0,0.20);
 }
-/* #content ul li{
-    margin: 0 0 20px;
-} */
 #content ul li:nth-of-type(2n){
     margin: 0 0 0 0;
 }
