@@ -89,12 +89,15 @@ header h1{
 .hot3{background: #F5D005;}
 .hot4{background: #559AC8;}
 /*----------------------------------------------------------------------- 內容區塊 --*/
+
 main{
     width: 100%;
-    height: 500px;
+    /* height: 500px; */
     background: #fff;
     padding: 133px 0 0 0;
+    margin: 0 0 36px;
 }
+/* 線段 */
 .line{
     width: 900px;
     height: 1px;
@@ -127,6 +130,92 @@ main{
     border-color: #559ac8 transparent transparent transparent;
     border-radius: 0;
 }
+
+/* 顯示區塊 */
+#content-block{
+    margin: 65px 0 0;
+    height: auto;  
+}
+#content-title{
+    width: 100%;
+    margin: 0 auto 24px;
+    font-size: 36px;
+    color: #8A82CC;
+    text-align: center;
+}
+.contentLi-style{
+    width: 49%;
+    height: 273px;
+    float: left;
+    margin: 0 2% 0 0;
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.20);
+}
+#content ul li:nth-of-type(2n){
+    margin: 0 0 0 0;
+}
+#content ul li figcaption{
+    width:100%; 
+    height:155px;
+    position: relative;
+}
+#content ul li figcaption figure.name,
+#content ul li figcaption figure.area{
+    position: absolute;
+    color: #FFF;
+    margin: 0;
+}
+#content ul li figcaption figure.name{
+    bottom: 14px;
+    left: 22px;
+    font-size: 24px;
+}
+#content ul li figcaption figure.area{
+    bottom: 10px;
+    right: 20px;
+    font-size: 16px;
+}
+#content .contentText-block{
+    width: 92%;
+    margin: 10px auto;
+}
+#content .contentText-block ul li{
+    position: relative;
+    padding: 0 0 0 25px;
+    margin-bottom: 16px;
+}
+
+#content .contentText-block ul li.area-phone::before{
+    content: url('../images/icons_phone.png');
+    width: 12px;
+    height: 20px;
+}
+#content .contentText-block ul li.area-position::before{
+    content: url('../images/icons_pin.png');
+    width: 16px;
+    height: 20px;
+}
+#content .contentText-block ul li.area-time::before{
+    content: url('../images/icons_clock.png');
+    width: 18px;
+    height: 18px;
+}
+#content .contentText-block ul li.area-tag::before{
+    content: url('../images/icons_tag.png');
+    width: 20px;
+    height: 20px;
+}
+#content .contentText-block ul li.area-time::before,
+#content .contentText-block ul li.area-position::before,
+#content .contentText-block ul li.area-phone::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+
+
 /*----------------------------------------------------------------------- footer --*/
 footer{
     width: 100%;
