@@ -78,7 +78,14 @@
             $('#selet-box option[value="'+id+'"]').attr('selected','selected');
             val = $('#selet-box option[value="' + id + '"]').text();
         }
-        // select 渲染
+        this.domEvent = function(){
+            var _this = this;
+            $('#selet-box').on('change',function(){
+                var text = $('#selet-box :selected').text();
+                $('#content-title').text(text);
+                _this.mainRender(text);  
+            });
+        }
         this.selectRender = function(){
             var _this = this;
             let html;
@@ -98,10 +105,11 @@
             }
             $('#selet-box').append(html);
         }   
-        this.mainRender = function(){
+        this.mainRender = function(val){
             let mainData = ogjData.result.records;
-            let dataObj = {};
+            let dataObj  = {};
             let html;
+            $('#content ul').html('');
             for( let i in mainData ){
                 if( mainData[i].Zone == val ){
                     html += `<li class="contentLi-style" data-id="${mainData[i]._id}">
@@ -132,7 +140,8 @@
             $(document).ready(function () {
                 _this.selectRender();
                 _this.initial();
-                _this.mainRender();          
+                _this.mainRender(val);  
+                _this.domEvent()   
             });
         }
     }
