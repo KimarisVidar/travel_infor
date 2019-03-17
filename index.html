@@ -15,7 +15,7 @@
             <h1>高雄旅遊資訊</h1>
             <select name="" id="selet-box">
                 <option value="0">-- 請選擇行政區 --</option>
-                <option value="1">1</option>
+                <!-- select repleace -->
             </select>
             <div class="hot-block">
                 <p class="hot-title">熱門行政區</p>
@@ -55,9 +55,7 @@
                                     <li class="area-position">高雄市三民區建國二路318號</li>
                                     <li class="area-phone">
                                         <div>886-7-2363357</div>
-                                        <div class="area-tag">
-                                            
-                                        </div>
+                                        <div class="area-tag">免費參觀</div>
                                     </li>
                                 </ul>
                             </div>
@@ -77,4 +75,61 @@
 </body>
 <script src="assets/js/jquery-3.2.1.min.js"></script>
 <script src="assets/js/bootstrap/js/bootstrap.min.js"></script>
+<!-- <script src="assets/json/datastore_search.json"></script> -->
+<script>
+    var ogjData;
+    var xhr = new XMLHttpRequest();
+    xhr.open('get', 'https://data.kcg.gov.tw/api/action/datastore_search?resource_id=92290ee5-6e61-456f-80c0-249eae2fcc97', true);
+    xhr.send(null);
+    xhr.onload = function () {
+        ogjData = JSON.parse(xhr.responseText);
+        console.log(ogjData.result.records)
+        Index.init();
+    };
+
+    var selectAry = [];
+    var index = function(){
+        // 初始資料
+        
+        var _this = this;
+        // select 渲染
+        this.selectRender = function(){
+            let html;
+            let select = [];
+            let selectData  = ogjData.result.records;
+            // 只取區的value
+            for( let i in selectData ){
+                let zone = selectData[i].Zone;
+                selectAry.push(zone);
+                select = selectAry.filter(function (el, idx, arr) {
+                    return arr.indexOf(el) === idx;
+                });
+            }
+            for( let j=0; j < select.length; j++  ){
+                html += `<option value="${j}">${select[j]}</option>`;
+            }
+            $('#selet-box').append(html);
+        }   
+        this.mainRender = function(){
+            /* 
+                圖片        - Picture1
+                開放時間    - Opentime
+                電話        - Tel
+                地址        - Add
+                免費參觀    - Ticketinfo
+                區域        - Zone
+            */
+            for(  ){
+
+            }
+
+            
+        }
+        this.init = function(){
+            // console.log('12313')
+            this.selectRender();
+        }
+    }
+    var Index = new index();
+</script>
 </html>

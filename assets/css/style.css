@@ -200,10 +200,11 @@ main{
     width: 18px;
     height: 18px;
 }
-#content .contentText-block ul li.area-tag::before{
+#content .contentText-block ul li.area-phone div.area-tag::before{
     content: url('../images/icons_tag.png');
     width: 20px;
     height: 20px;
+    margin-right: 10px;
 }
 #content .contentText-block ul li.area-time::before,
 #content .contentText-block ul li.area-position::before,
@@ -212,6 +213,19 @@ main{
     top: 0;
     left: 0;
     display: block;
+}
+#content .contentText-block ul li.area-phone div {
+    display: inline-block;
+    vertical-align: middle;    
+}
+#content .contentText-block ul li.area-phone div:first-child{
+    width: 75%;
+}
+#content .contentText-block ul li.area-phone div.area-tag{
+    width: 24%;
+    font-size: 16px;
+    color: #000;
+    padding: 0 0 0 10px;
 }
 
 
