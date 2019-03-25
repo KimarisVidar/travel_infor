@@ -1,0 +1,266 @@
+/* 共用變數 */
+$color-gray:#ccc;
+$color-White:#fff;
+$color-hot1:#8A82CC;
+$color-hot2:#FFA782;
+$color-hot3:#F5D005;
+$color-hot4:#559AC8;
+
+/* mixin */
+@mixin disply-inlin-block{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {display: block;}
+::-webkit-scrollbar-track {border-radius: 4px; margin: 0 0 5px;}
+::-webkit-scrollbar-thumb {border-radius: 4px; background: $color-gray;}
+/*----------------------------------------------------------------------- 共用 --*/
+
+.wrap{ max-width: 1024px; margin: 0 auto }
+main{
+    .wrap{
+        nav{ text-align: center; }
+    } 
+} 
+header{
+    width: 100%;
+    height: 380px;
+    background: url(../images/Hero.png) no-repeat top center;
+    position: relative;
+    h1{
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        font-size: 40px;
+        letter-spacing: 3.89px;
+        line-height: 41px;
+        padding: 89px 0;
+        margin-bottom: 96px;
+        color: $color-White;
+    }
+}
+#selet-box{
+    width: 452px;
+    height: 48px;
+    display: block;
+    padding: 0 15px 0 10px;
+    margin: 0 auto;
+    border: 3px solid $color-White;
+    border-radius: 3px;
+    font-size: 18px;
+    /*移除箭頭樣式*/
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    /*改變右邊箭頭樣式*/
+    background: url(../images/icons_down.png) no-repeat 98% center rgba(255,255,255,0.7);
+    line-height: 21px;
+}
+.hot-block{
+    width: 800px;
+    height: auto;
+    position: absolute;
+    bottom: -88px;
+    left: 50%;
+    transform: translate3d(-50%,0,0);
+    background: $color-White;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
+    padding: 20px 26px 18px;
+}
+.hot-title{
+    width: 100%;
+    height: auto;
+    text-align: left;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 21px;
+    display: block;
+    color: #000;
+}
+.hot-content{
+    width: 100%;
+    height: auto;
+    margin: 14px auto 0;
+    padding: 0 25px;
+}
+.hot-content {
+    ul li{
+        @include disply-inlin-block();
+        width: 19%;
+        margin-right: 50px;
+        border-radius: 5px;
+        text-align: center;
+        color: $color-White;
+        font-size: 20px;
+        line-height: 23px;
+        padding: 11px 35px;
+        cursor: pointer;
+        &:last-child{ margin-right: 0; }
+    }
+}
+.hot1{background: $color-hot1;}
+.hot2{background: $color-hot2;}
+.hot3{background: $color-hot3;}
+.hot4{background: $color-hot4;}
+/*----------------------------------------------------------------------- 內容區塊 --*/
+
+main{
+    width: 100%;
+    background: $color-White;
+    padding: 133px 0 0 0;
+    margin: 0 0 36px;
+}
+/* 線段 */
+.line{
+    width: 900px;
+    height: 1px;
+    background-image: linear-gradient(to right, #559AC8 37%, #559AC8 50%, transparent 50%);
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+    margin: 0 auto;
+}
+.circle{
+    width: 24px;
+    height: 24px;
+    border: 2px solid #559ac8;
+    border-radius: 99em;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    top: -11px;
+    background: $color-White;
+}
+.circle::before{
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 4px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 9px 6px 0px 6px;
+    border-color: #559ac8 transparent transparent transparent;
+    border-radius: 0;
+}
+
+/* 顯示區塊 */
+#content-block{ margin: 65px 0 0; height: auto; }
+#content-title{
+    width: 100%;
+    margin: 0 auto 24px;
+    font-size: 36px;
+    color: #8A82CC;
+    text-align: center;
+}
+.contentLi-style{
+    width: 49%;
+    height: 273px;
+    float: left;
+    margin: 0 2% 2% 0;
+    background: $color-White;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.20);
+}
+#content{
+    ul li{
+        &:nth-of-type(2n){ margin: 0 0 0 0; }
+        figcaption{
+            width:100%; 
+            height:155px;
+            position: relative;
+            img{ width:100%;  height:155px; }
+            figure.name,
+            figure.area{
+                position: absolute;
+                color: #FFF;
+                margin: 0;
+            }
+            figure.name{
+                bottom: 14px;
+                left: 22px;
+                font-size: 24px;
+            }
+            figure.area{
+                bottom: 10px;
+                right: 20px;
+                font-size: 16px;
+            }
+        }
+    }
+    .contentText-block {
+        width: 92%; 
+        margin: 10px auto;
+        ul{
+            li{
+                position: relative;
+                padding: 0 0 0 25px;
+                margin-bottom: 16px;
+                overflow : hidden;
+                text-overflow : ellipsis;
+                white-space : nowrap;
+            }
+            .area-phone div {
+                @include disply-inlin-block();  
+                &:first-child{ width: 75%; } 
+            }
+            .area-phone div.area-tag{
+                width: 24%;
+                font-size: 16px;
+                color: #000;
+                padding: 0 0 0 10px;
+            }
+            .area-time::before,
+            .area-position::before,
+            .area-phone::before{
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+            }
+            .area-phone::before{
+                content: url('../images/icons_phone.png');
+                width: 12px;
+                height: 20px;
+            }
+            .area-phone::before{
+                content: url('../images/icons_phone.png');
+                width: 12px;
+                height: 20px;
+            }
+            .area-position::before{
+                content: url('../images/icons_pin.png');
+                width: 16px;
+                height: 20px;
+            }
+            .area-time::before{
+                content: url('../images/icons_clock.png');
+                width: 18px;
+                height: 18px;
+            }
+            .area-phone div.area-tag::before{
+                content: url('../images/icons_tag.png');
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
+        } 
+    }
+    
+}
+/*----------------------------------------------------------------------- footer --*/
+footer{
+    width: 100%;
+    height: auto;
+    padding: 24px 0 23px;
+    background: #559AC8;
+    p{
+        text-align: center; 
+        font-size: 14px; 
+        width: 100%;
+        height: 14px;
+        &:first-child{color: #fff;margin-bottom: 15px;}
+        &:last-child{color: #FFD366;}
+    }
+}

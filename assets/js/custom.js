@@ -4,14 +4,13 @@ xhr.open('get', 'https://data.kcg.gov.tw/api/action/datastore_search?resource_id
 xhr.send(null);
 xhr.onload = function () {
     ogjData = JSON.parse(xhr.responseText);
-    // console.log(ogjData.result.records)
     Index.init();
 };
 var index = function () {
-    var id = 0;
-    var text = '三民區';
     var val;
+    var id      = 0;
     var listAry = [];
+    var text    = '三民區';
     // 初始資料        
     this.initial = function () {
         // 預設三民區
@@ -24,7 +23,7 @@ var index = function () {
             text = $('#selet-box :selected').text();
             _this.mainRender(text);
         });
-
+1
         $('.hot-content ul li').on('click', function () {
             text = $(this).text();
             var value = $(this).attr('value');
@@ -43,11 +42,11 @@ var index = function () {
         })
     }
     this.selectRender = function () {
-        var _this = this;
         let html;
-        let select = [];
-        let selectAry = [];
-        let selectData = ogjData.result.records;
+        var _this       = this;
+        let select      = [];
+        let selectAry   = [];
+        let selectData  = ogjData.result.records;
         // 只取區的value
         for (let i in selectData) {
             let zone = selectData[i].Zone;
@@ -66,12 +65,11 @@ var index = function () {
         $('#selet-box option[value="' + val + '"]').attr('selected', 'selected');
     }
     this.mainRender = function (text) {
-        let _this = this;
-        let mainData = ogjData.result.records;
-        let dataObj = {};
         let html;
-        let num = 0;
-        listAry = [];
+        let num         = 0;
+        let _this       = this;
+        let mainData    = ogjData.result.records;
+        listAry         = [];
         $('#content-title').text(text);
         $('#content ul').html('');
         for (let i in mainData) {
@@ -80,23 +78,22 @@ var index = function () {
                 num++;
                 if (num <= 10) {
                     html += `<li class="contentLi-style" data-id="${mainData[i]._id}">
-                                    <figcaption>
-                                        <img src="${mainData[i].Picture1}"/>
-                                        <figure class="name">${mainData[i].Name}</figure>
-                                        <figure class="area">${mainData[i].Zone}</figure>
-                                    </figcaption>
-                                    <div class="contentText-block ">
-                                        <ul>
-                                            <li class="area-time">${mainData[i].Opentime}</li>
-                                            <li class="area-position">${mainData[i].Add}</li>
-                                            <li class="area-phone">
-                                                <div>${mainData[i].Tel}</div>
-                                                <div class="area-tag">${mainData[i].Ticketinfo}</div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>`;
-                    // 出現不名 undefined 移除
+                                <figcaption>
+                                    <img src="${mainData[i].Picture1}"/>
+                                    <figure class="name">${mainData[i].Name}</figure>
+                                    <figure class="area">${mainData[i].Zone}</figure>
+                                </figcaption>
+                                <div class="contentText-block ">
+                                    <ul>
+                                        <li class="area-time">${mainData[i].Opentime}</li>
+                                        <li class="area-position">${mainData[i].Add}</li>
+                                        <li class="area-phone">
+                                            <div>${mainData[i].Tel}</div>
+                                            <div class="area-tag">${mainData[i].Ticketinfo}</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>`;
                     html = html.replace('undefined', '');
                 }
             }
@@ -105,42 +102,37 @@ var index = function () {
         _this.navList();
     }
     this.navClick_render = function (num) {
-        let text = $('#content-title').text();
-        let mainData = ogjData.result.records;
         let html;
-        let ary = [];
-        let ary1 = [];
-        let s_num = (num * 10) - 9;
-        let e_num = num * 10;
-        for (let i in mainData) {
-            if (mainData[i].Zone == text) {
-                ary.push(mainData[i]);
-            }
-        }
-        for (let i = s_num - 1; i <= e_num; i++) {
-            if (ary[i] !== undefined) {
-                ary1.push(ary[i]);
-            }
-        }
+        let ary     = [];
+        let ary1    = [];
+        let s_num   = (num * 10) - 9;
+        let e_num   = num * 10;
+        let text    = $('#content-title').text();
+        let mainData = ogjData.result.records;
+
+        for (let i in mainData) if (mainData[i].Zone == text) ary.push(mainData[i]);
+        for (let i = s_num - 1; i <= e_num; i++) if (ary[i] !== undefined) ary1.push(ary[i]);
+        
         $('#content ul').html('');
+        
         for (let j = 0; j < ary1.length; j++) {
             html += `<li class="contentLi-style" data-id="${ary1[j]._id}">
-                            <figcaption>
-                                <img src="${ary1[j].Picture1}"/>
-                                <figure class="name">${ary1[j].Name}</figure>
-                                <figure class="area">${ary1[j].Zone}</figure>
-                            </figcaption>
-                            <div class="contentText-block ">
-                                <ul>
-                                    <li class="area-time">${ary1[j].Opentime}</li>
-                                    <li class="area-position">${ary1[j].Add}</li>
-                                    <li class="area-phone">
-                                        <div>${ary1[j].Tel}</div>
-                                        <div class="area-tag">${ary1[j].Ticketinfo}</div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>`;
+                        <figcaption>
+                            <img src="${ary1[j].Picture1}"/>
+                            <figure class="name">${ary1[j].Name}</figure>
+                            <figure class="area">${ary1[j].Zone}</figure>
+                        </figcaption>
+                        <div class="contentText-block ">
+                            <ul>
+                                <li class="area-time">${ary1[j].Opentime}</li>
+                                <li class="area-position">${ary1[j].Add}</li>
+                                <li class="area-phone">
+                                    <div>${ary1[j].Tel}</div>
+                                    <div class="area-tag">${ary1[j].Ticketinfo}</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>`;
             // 出現不名 undefined 移除
             html = html.replace('undefined', '');
         }
