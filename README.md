@@ -2,6 +2,12 @@
 
 web:https://kimarisvidar.github.io/travel_infor/
 
+# 使用
+
+- SCSS
+- JQUERY
+- bootstrap
+
 # 注意! 
 
-若網頁內容無法顯示，則是API(https://data.kcg.gov.tw/api/action/datastore_search?resource_id=92290ee5-6e61-456f-80c0-249eae2fcc97)掛了
+若網頁內容無法顯示，則是資料來源掛了，敬請見諒
