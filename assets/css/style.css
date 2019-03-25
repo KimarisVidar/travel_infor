@@ -3,39 +3,46 @@
 /* mixin */
 /* scrollbar */
 ::-webkit-scrollbar {
-  display: block; }
+  display: block;
+}
 
 ::-webkit-scrollbar-track {
   border-radius: 4px;
-  margin: 0 0 5px; }
+  margin: 0 0 5px;
+}
 
 ::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background: #ccc; }
+  background: #ccc;
+}
 
 /*----------------------------------------------------------------------- 共用 --*/
 .wrap {
   max-width: 1024px;
-  margin: 0 auto; }
+  margin: 0 auto;
+}
 
 main .wrap nav {
-  text-align: center; }
+  text-align: center;
+}
 
 header {
   width: 100%;
   height: 380px;
   background: url(../images/Hero.png) no-repeat top center;
-  position: relative; }
-  header h1 {
-    width: 100%;
-    height: 40px;
-    text-align: center;
-    font-size: 40px;
-    letter-spacing: 3.89px;
-    line-height: 41px;
-    padding: 89px 0;
-    margin-bottom: 96px;
-    color: #fff; }
+  position: relative;
+}
+header h1 {
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  font-size: 40px;
+  letter-spacing: 3.89px;
+  line-height: 41px;
+  padding: 89px 0;
+  margin-bottom: 96px;
+  color: #fff;
+}
 
 #selet-box {
   width: 452px;
@@ -52,7 +59,8 @@ header {
   -webkit-appearance: none;
   /*改變右邊箭頭樣式*/
   background: url(../images/icons_down.png) no-repeat 98% center rgba(255, 255, 255, 0.7);
-  line-height: 21px; }
+  line-height: 21px;
+}
 
 .hot-block {
   width: 800px;
@@ -66,7 +74,8 @@ header {
   border-radius: 5px;
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
-  padding: 20px 26px 18px; }
+  padding: 20px 26px 18px;
+}
 
 .hot-title {
   width: 100%;
@@ -76,13 +85,15 @@ header {
   font-size: 18px;
   line-height: 21px;
   display: block;
-  color: #000; }
+  color: #000;
+}
 
 .hot-content {
   width: 100%;
   height: auto;
   margin: 14px auto 0;
-  padding: 0 25px; }
+  padding: 0 25px;
+}
 
 .hot-content ul li {
   display: inline-block;
@@ -95,40 +106,55 @@ header {
   font-size: 20px;
   line-height: 23px;
   padding: 11px 35px;
-  cursor: pointer; }
-  .hot-content ul li:last-child {
-    margin-right: 0; }
+  cursor: pointer;
+}
+.hot-content ul li:last-child {
+  margin-right: 0;
+}
 
 .hot1 {
-  background: #8A82CC; }
+  background: #8a82cc;
+}
 
 .hot2 {
-  background: #FFA782; }
+  background: #ffa782;
+}
 
 .hot3 {
-  background: #F5D005; }
+  background: #f5d005;
+}
 
 .hot4 {
-  background: #559AC8; }
+  background: #559ac8;
+}
 
 /*----------------------------------------------------------------------- 內容區塊 --*/
 main {
   width: 100%;
   background: #fff;
   padding: 133px 0 0 0;
-  margin: 0 0 36px; }
+  margin: 0 0 36px;
+}
 
 /* 線段 */
 .line {
   width: 900px;
   height: 1px;
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(37%, #559AC8), color-stop(50%, #559AC8), color-stop(50%, transparent));
-  background-image: -webkit-linear-gradient(left, #559AC8 37%, #559AC8 50%, transparent 50%);
-  background-image: -o-linear-gradient(left, #559AC8 37%, #559AC8 50%, transparent 50%);
-  background-image: linear-gradient(to right, #559AC8 37%, #559AC8 50%, transparent 50%);
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(37%, #559ac8),
+    color-stop(50%, #559ac8),
+    color-stop(50%, transparent)
+  );
+  background-image: -webkit-linear-gradient(left, #559ac8 37%, #559ac8 50%, transparent 50%);
+  background-image: -o-linear-gradient(left, #559ac8 37%, #559ac8 50%, transparent 50%);
+  background-image: linear-gradient(to right, #559ac8 37%, #559ac8 50%, transparent 50%);
   background-size: 10px 1px;
   background-repeat: repeat-x;
-  margin: 0 auto; }
+  margin: 0 auto;
+}
 
 .circle {
   width: 24px;
@@ -139,10 +165,11 @@ main {
   position: relative;
   margin: 0 auto;
   top: -11px;
-  background: #fff; }
+  background: #fff;
+}
 
 .circle::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 6px;
   left: 4px;
@@ -151,19 +178,22 @@ main {
   border-style: solid;
   border-width: 9px 6px 0px 6px;
   border-color: #559ac8 transparent transparent transparent;
-  border-radius: 0; }
+  border-radius: 0;
+}
 
 /* 顯示區塊 */
 #content-block {
   margin: 65px 0 0;
-  height: auto; }
+  height: auto;
+}
 
 #content-title {
   width: 100%;
   margin: 0 auto 24px;
   font-size: 36px;
-  color: #8A82CC;
-  text-align: center; }
+  color: #8a82cc;
+  text-align: center;
+}
 
 .contentLi-style {
   width: 49%;
@@ -172,95 +202,117 @@ main {
   margin: 0 2% 2% 0;
   background: #fff;
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+}
 
 #content ul li:nth-of-type(2n) {
-  margin: 0 0 0 0; }
+  margin: 0 0 0 0;
+}
 
 #content ul li figcaption {
   width: 100%;
   height: 155px;
-  position: relative; }
-  #content ul li figcaption img {
-    width: 100%;
-    height: 155px; }
-  #content ul li figcaption figure.name,
-  #content ul li figcaption figure.area {
-    position: absolute;
-    color: #FFF;
-    margin: 0; }
-  #content ul li figcaption figure.name {
-    bottom: 14px;
-    left: 22px;
-    font-size: 24px; }
-  #content ul li figcaption figure.area {
-    bottom: 10px;
-    right: 20px;
-    font-size: 16px; }
+  position: relative;
+}
+#content ul li figcaption img {
+  width: 100%;
+  height: 155px;
+}
+#content ul li figcaption figure.name,
+#content ul li figcaption figure.area {
+  position: absolute;
+  color: #fff;
+  margin: 0;
+}
+#content ul li figcaption figure.name {
+  bottom: 14px;
+  left: 22px;
+  font-size: 24px;
+}
+#content ul li figcaption figure.area {
+  bottom: 10px;
+  right: 20px;
+  font-size: 16px;
+}
 
 #content .contentText-block {
   width: 92%;
-  margin: 10px auto; }
-  #content .contentText-block ul li {
-    position: relative;
-    padding: 0 0 0 25px;
-    margin-bottom: 16px;
-    overflow: hidden;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    white-space: nowrap; }
-  #content .contentText-block ul .area-phone div {
-    display: inline-block;
-    vertical-align: middle; }
-    #content .contentText-block ul .area-phone div:first-child {
-      width: 75%; }
-  #content .contentText-block ul .area-phone div.area-tag {
-    width: 24%;
-    font-size: 16px;
-    color: #000;
-    padding: 0 0 0 10px; }
-  #content .contentText-block ul .area-time::before,
-  #content .contentText-block ul .area-position::before,
-  #content .contentText-block ul .area-phone::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block; }
-  #content .contentText-block ul .area-phone::before {
-    content: url("../images/icons_phone.png");
-    width: 12px;
-    height: 20px; }
-  #content .contentText-block ul .area-phone::before {
-    content: url("../images/icons_phone.png");
-    width: 12px;
-    height: 20px; }
-  #content .contentText-block ul .area-position::before {
-    content: url("../images/icons_pin.png");
-    width: 16px;
-    height: 20px; }
-  #content .contentText-block ul .area-time::before {
-    content: url("../images/icons_clock.png");
-    width: 18px;
-    height: 18px; }
-  #content .contentText-block ul .area-phone div.area-tag::before {
-    content: url("../images/icons_tag.png");
-    width: 20px;
-    height: 20px;
-    margin-right: 10px; }
+  margin: 10px auto;
+}
+#content .contentText-block ul li {
+  position: relative;
+  padding: 0 0 0 25px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#content .contentText-block ul .area-phone div {
+  display: inline-block;
+  vertical-align: middle;
+}
+#content .contentText-block ul .area-phone div:first-child {
+  width: 75%;
+}
+#content .contentText-block ul .area-phone div.area-tag {
+  width: 24%;
+  font-size: 16px;
+  color: #000;
+  padding: 0 0 0 10px;
+}
+#content .contentText-block ul .area-time::before,
+#content .contentText-block ul .area-position::before,
+#content .contentText-block ul .area-phone::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+}
+#content .contentText-block ul .area-phone::before {
+  content: url("../images/icons_phone.png");
+  width: 12px;
+  height: 20px;
+}
+#content .contentText-block ul .area-phone::before {
+  content: url("../images/icons_phone.png");
+  width: 12px;
+  height: 20px;
+}
+#content .contentText-block ul .area-position::before {
+  content: url("../images/icons_pin.png");
+  width: 16px;
+  height: 20px;
+}
+#content .contentText-block ul .area-time::before {
+  content: url("../images/icons_clock.png");
+  width: 18px;
+  height: 18px;
+}
+#content .contentText-block ul .area-phone div.area-tag::before {
+  content: url("../images/icons_tag.png");
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
 
 /*----------------------------------------------------------------------- footer --*/
 footer {
   width: 100%;
   height: auto;
   padding: 24px 0 23px;
-  background: #559AC8; }
-  footer p {
-    text-align: center;
-    font-size: 14px;
-    width: 100%;
-    height: 14px; }
-    footer p:first-child {
-      color: #fff;
-      margin-bottom: 15px; }
-    footer p:last-child {
-      color: #FFD366; }
+  background: #559ac8;
+}
+footer p {
+  text-align: center;
+  font-size: 14px;
+  width: 100%;
+  height: 14px;
+}
+footer p:first-child {
+  color: #fff;
+  margin-bottom: 15px;
+}
+footer p:last-child {
+  color: #ffd366;
+}
