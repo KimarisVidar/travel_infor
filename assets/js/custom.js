@@ -1,11 +1,12 @@
-var ogjData;
-var xhr = new XMLHttpRequest();
-xhr.open('get', 'https://data.kcg.gov.tw/api/action/datastore_search?resource_id=92290ee5-6e61-456f-80c0-249eae2fcc97', true);
-xhr.send(null);
-xhr.onload = function () {
-    ogjData = JSON.parse(xhr.responseText);
-    Index.init();
-};
+// var ogjData;
+// var xhr = new XMLHttpRequest();
+// xhr.open('get', 'https://data.kcg.gov.tw/api/action/datastore_search?resource_id=92290ee5-6e61-456f-80c0-249eae2fcc97', true);
+// xhr.send(null);
+// xhr.onload = function () {
+//     ogjData = JSON.parse(xhr.responseText);
+  
+// };
+
 var index = function () {
     var val;
     var id      = 0;
@@ -46,7 +47,8 @@ var index = function () {
         var _this       = this;
         let select      = [];
         let selectAry   = [];
-        let selectData  = ogjData.result.records;
+        // let selectData  = ogjData.result.records;
+        let selectData = records;
         // 只取區的value
         for (let i in selectData) {
             let zone = selectData[i].Zone;
@@ -68,7 +70,8 @@ var index = function () {
         let html;
         let num         = 0;
         let _this       = this;
-        let mainData    = ogjData.result.records;
+        // let mainData    = ogjData.result.records;
+        let mainData = records;
         listAry         = [];
         $('#content-title').text(text);
         $('#content ul').html('');
@@ -108,7 +111,7 @@ var index = function () {
         let s_num   = (num * 10) - 9;
         let e_num   = num * 10;
         let text    = $('#content-title').text();
-        let mainData = ogjData.result.records;
+        let mainData = records;
 
         for (let i in mainData) if (mainData[i].Zone == text) ary.push(mainData[i]);
         for (let i = s_num - 1; i <= e_num; i++) if (ary[i] !== undefined) ary1.push(ary[i]);
@@ -161,3 +164,4 @@ var index = function () {
     }
 }
 var Index = new index();
+Index.init();
